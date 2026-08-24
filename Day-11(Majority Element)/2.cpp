@@ -1,26 +1,33 @@
-#include<iostream>
-#include<vector>
+//Leetcode 169 : Majority element bruteforce
 
+#include <iostream>
+#include <vector>
 using namespace std;
 
-vector<int> mjElement(vector<int>nums){
+int mjElement(vector<int> nums) {
     int n = nums.size();
 
-    for(int val : nums){
+    for (int val : nums) {
         int freq = 0;
-        for(int ele : nums){
-            if(ele == val){
+
+        for (int ele : nums) {
+            if (ele == val) {
                 freq++;
             }
         }
-        if(freq > nums/2){
-            return 
+
+        if (freq > n / 2) {
+            return val;
         }
     }
+
+    return -1;
 }
-int main(){
-    
-    vector<int> nums = {2,2,1,1,1};
-    
-   return 0;
+
+int main() {
+    vector<int> nums = {2, 2, 1, 1, 1};
+
+    cout << mjElement(nums) << endl;
+
+    return 0;
 }
